@@ -15,6 +15,9 @@ struct RomMOptions
 {
     @Option(name: "Manage Host", detailView: { _ in HostView() })
     var manageHost: String = ""
+    
+    @Option()
+    var serverHost: String = ""
 }
 
 private extension HostView
@@ -34,11 +37,31 @@ private extension HostView
         {
             self.username = Keychain.shared.romMUsername ?? ""
             self.password = Keychain.shared.romMPassword ?? ""
-            self.host = Keychain.shared.romMHost ?? ""
+            self.host = ExperimentalFeatures.shared.romM.serverHost
         }
         
-        func signIn() {
-            
+        func signIn() async {
+            ExperimentalFeatures.shared.romM.serverHost = self.host
+            await RomMManager.shared.tryAuth(with: self.username, password: self.password)
+        }
+    }
+}
+
+struct PasswordField: View {
+    @Binding var text: String
+    @State private var isSecure: Bool = true
+
+    var body: some View {
+        HStack {
+            if isSecure {
+                SecureField("Password", text: $text)
+            } else {
+                TextField("Password", text: $text)
+            }
+            Button(action: { isSecure.toggle() }) {
+                Image(systemName: isSecure ? "eye.slash" : "eye")
+                    .foregroundColor(.gray)
+            }
         }
     }
 }
@@ -46,6 +69,7 @@ private extension HostView
 struct HostView: View {
     @StateObject
     private var viewModel = ViewModel()
+    @State private var isSigningIn = false
     
     var body: some View {
         guard #available(iOS 15, *) else { return AnyView(Text("RomM requires iOS 15 or later.")) }
@@ -66,14 +90,25 @@ struct HostView: View {
             }
             
             Section("Password") {
-                SecureField("Password", text: $viewModel.password)
+                PasswordField(text: $viewModel.password)
                     .textContentType(.password)
                     .autocapitalization(.none)
                     .disableAutocorrection(true)
             }
             
-            Button("Sign In") {
-                viewModel.signIn()
+            ZStack {
+                Button("Save") {
+                    isSigningIn = true
+                    Task {
+                        await viewModel.signIn()
+                        isSigningIn = false
+                    }
+                }
+                if isSigningIn {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .tint(.blue)
+                }
             }
         })
     }

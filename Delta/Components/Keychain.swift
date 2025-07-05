@@ -75,9 +75,6 @@ public class Keychain
     @KeychainItem(key: "romMPassword")
     public var romMPassword: String?
     
-    @KeychainItem(key: "romMHost")
-    public var romMHost: String?
-    
     private init()
     {
     }

@@ -171,6 +171,7 @@
 		C6F24AD92D64B550002F939F /* PauseViewController+Lu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F24AD82D64B550002F939F /* PauseViewController+Lu.swift */; };
 		C6F24ADB2D64B5A0002F939F /* Lu-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C6F24ADA2D64B5A0002F939F /* Lu-Info.plist */; };
 		CA2AFD6A2E191868005ED2F5 /* RomM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2AFD692E191868005ED2F5 /* RomM.swift */; };
+		CA2AFD6E2E192557005ED2F5 /* RomMManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2AFD6D2E192557005ED2F5 /* RomMManager.swift */; };
 		D5002BD92DCD3E81003418FD /* IAPScareScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5002BD82DCD3E81003418FD /* IAPScareScreen.swift */; };
 		D5002BDA2DCD3E87003418FD /* IAPScareScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5002BD82DCD3E81003418FD /* IAPScareScreen.swift */; };
 		D5002BDC2DCD3ED2003418FD /* MockPurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5002BDB2DCD3ED2003418FD /* MockPurchaseManager.swift */; };
@@ -513,6 +514,7 @@
 		C6F24ADA2D64B5A0002F939F /* Lu-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lu-Info.plist"; sourceTree = "<group>"; };
 		C786AF1D2DDB6223BE2063CC /* Pods-Delta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Delta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Delta/Pods-Delta.debug.xcconfig"; sourceTree = "<group>"; };
 		CA2AFD692E191868005ED2F5 /* RomM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomM.swift; sourceTree = "<group>"; };
+		CA2AFD6D2E192557005ED2F5 /* RomMManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomMManager.swift; sourceTree = "<group>"; };
 		D5002BD82DCD3E81003418FD /* IAPScareScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPScareScreen.swift; sourceTree = "<group>"; };
 		D5002BDB2DCD3ED2003418FD /* MockPurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPurchaseManager.swift; sourceTree = "<group>"; };
 		D5002BDD2DCD3F31003418FD /* MockDatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDatabaseManager.swift; sourceTree = "<group>"; };
@@ -1183,6 +1185,7 @@
 				D57D795C29F30B1400BB2CF8 /* Experimental Features */,
 				D504F5B92CE55C8100AD3760 /* Purchases */,
 				D5AE76AD2C2B52660086471B /* Patreon */,
+				CA2AFD6C2E192536005ED2F5 /* RomM */,
 				D5087E7F2D76541400E77936 /* RetroAchievements */,
 				BF5942571E09BB5D0051894B /* Components */,
 				BF696B7E1D9B2AE6009639E0 /* Theming */,
@@ -1234,6 +1237,14 @@
 				D56C36302D65471D00A8984D /* WhatsNewCell.swift */,
 			);
 			path = Launch;
+			sourceTree = "<group>";
+		};
+		CA2AFD6C2E192536005ED2F5 /* RomM */ = {
+			isa = PBXGroup;
+			children = (
+				CA2AFD6D2E192557005ED2F5 /* RomMManager.swift */,
+			);
+			path = RomM;
 			sourceTree = "<group>";
 		};
 		D502F82129EF05F800ACCDA1 /* Scenes */ = {
@@ -1842,6 +1853,7 @@
 				D552DE3A2D39C5A500E737BE /* WFCServersView.swift in Sources */,
 				D5A9C01D29DE058C00A8D610 /* VariableFastForward.swift in Sources */,
 				C6F24AD92D64B550002F939F /* PauseViewController+Lu.swift in Sources */,
+				CA2AFD6E2E192557005ED2F5 /* RomMManager.swift in Sources */,
 				BFE593CA21F3F8B7003412A6 /* GameSave.swift in Sources */,
 				D5087E8F2D766CFC00E77936 /* RetroAchievements.swift in Sources */,
 				BF63A1B521A4B76E00EE8F61 /* RecordVersionsViewController.swift in Sources */,
