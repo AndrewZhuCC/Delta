@@ -69,6 +69,15 @@ public class Keychain
     @KeychainItem(key: "retroAchievementsAuthToken")
     public var retroAchievementsAuthToken: String?
     
+    @KeychainItem(key: "romMUsername")
+    public var romMUsername: String?
+    
+    @KeychainItem(key: "romMPassword")
+    public var romMPassword: String?
+    
+    @KeychainItem(key: "romMHost")
+    public var romMHost: String?
+    
     private init()
     {
     }

@@ -83,6 +83,11 @@ struct ExperimentalFeatures: FeatureContainer
              options: RetroAchievementsOptions())
     var retroAchievements
     
+    @Feature(name: "RomM Integration",
+             description: "Integrate with RomM to access a vast library of games and ROMs.",
+             options: RomMOptions())
+    var romM
+    
     private init()
     {
         self.prepareFeatures()
